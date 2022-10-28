@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Student_Project.persistance.dao.StudentDAO;
-import Student_Project.persistance.dto.StudentRequestDTO;
 
 @WebServlet("/DeleteStudentServlet")
 public class DeleteStudentServlet extends HttpServlet {

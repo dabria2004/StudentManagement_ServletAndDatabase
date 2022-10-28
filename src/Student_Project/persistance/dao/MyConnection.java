@@ -7,7 +7,7 @@ public class MyConnection {
 	public static Connection getConnection(){
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/testdb","root","root");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/testservlet","root","root");
 			System.out.println("Connecting...");
 		}catch(ClassNotFoundException e){
 			System.out.println("Driver class not found.");

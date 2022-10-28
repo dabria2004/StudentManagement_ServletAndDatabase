@@ -45,7 +45,7 @@ public class ClassDAO {
 	}
 	
 	public ArrayList<ClassResponseDTO> selectAll(){
-		ArrayList<ClassResponseDTO> list=new ArrayList();
+		ArrayList<ClassResponseDTO> list=new ArrayList<>();
 		String sql="select * from class";		
 		try {
 		PreparedStatement ps=con.prepareStatement(sql);
