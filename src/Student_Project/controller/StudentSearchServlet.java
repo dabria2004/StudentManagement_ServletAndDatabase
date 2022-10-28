@@ -32,8 +32,8 @@ public class StudentSearchServlet extends HttpServlet {
         String url = "jdbc:mysql://localhost:3306/";
         String dbName = "testdb";
         String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password = "root";
+        String userName = "ppt";
+        String password = "ppt@2004";
         Statement st=null;
         try {
             Class.forName(driver).newInstance();

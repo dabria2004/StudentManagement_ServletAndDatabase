@@ -89,7 +89,7 @@
     <div id="contents">
     <div class="search_form">
 	<h3>User Search</h3>
-	<form method="post" action="SearchServlet">
+	<form action = "SearchServlet" method = "post">
 	<table class="tableForm">
 	<tr>
 		<td class="tblLabel"><label>User ID</label></td>
