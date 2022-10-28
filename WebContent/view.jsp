@@ -89,45 +89,27 @@
 	<div id="list">
 	<div style="color:red;"> ${error}</div>
 	<table style="border: 1px solid black;">
+	
 		<tr class="tblHeader">
 			<th width="3%" style="border: 1px solid black;">Delete</th>
 			<th width="3%" style="border: 1px solid black;">Update</th>
 			<th width="12%" style="border: 1px solid black;">User ID</th>
 			<th width="24%" style="border: 1px solid black;">User Name</th>
 		</tr>
-    <%
-		int count = 0;
-		String color = "#F9EBB3";
-		if (request.getAttribute("piList") != null) {
-		ArrayList al = (ArrayList) request.getAttribute("piList");
-			System.out.println(al);
-				Iterator itr = al.iterator();
-					while (itr.hasNext()) {
-						if ((count % 2) == 0) {
-					color = "#eeffee";
-				}
-			count++;
-		ArrayList pList = (ArrayList) itr.next();
-	%>
+    
+    <c:forEach var = "user" items = "${userList}">
 		<tr>
 			<td id="userUpdate" style="border: 1px solid black;">
-				<a href="update.jsp?uid=<%=pList.get(0)%>">Update</a>
+				<a href="UserUpdateServlet?uid=${user.rid}">Update</a>
 			</td>
 			<td id="delete" style="border: 1px solid black;">
-				<a href="DeleteUserServlet?uid=<%=pList.get(0)%>">Delete</a>
+				<a href="DeleteUserServlet?uid=${user.rid}">Delete</a>
 			</td>
-			<td style="border: 1px solid black;"><%=pList.get(0)%></td>
-			<td style="border: 1px solid black;"><%=pList.get(1)%></td>
+			<td style="border: 1px solid black;">${user.rid}</td>
+			<td style="border: 1px solid black;">${user.rname}</td>
 		</tr>
-            <%
-                    }
-                }
-                if (count == 0) {
-            %>
-            <%
-            request.getRequestDispatcher("User_Search.jsp").forward(request, response);
-                        }
-            %>
+	</c:forEach>
+           
         </table>
 		
 		</div>    

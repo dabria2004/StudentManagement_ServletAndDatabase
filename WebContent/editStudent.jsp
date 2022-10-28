@@ -46,7 +46,7 @@
 		</div>
 		<div id="main_contents">
 			<div id="contents">
-				<h3>Student Register</h3>
+				<h3>Student Update</h3>
 				${message}
 				<div style="color:blue;"> ${success}</div>
 				<form name="registerForm" action="UpdateStudentServlet" method="post">
