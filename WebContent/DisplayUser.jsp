@@ -104,8 +104,6 @@ ResultSet resultSet = null;
             </div>
             </div>
             </div> 
-            
-     
 
 <%
 			}

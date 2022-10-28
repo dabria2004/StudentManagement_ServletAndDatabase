@@ -3,12 +3,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import Student_Project.model.StudentBean;
 
 @WebServlet("/SearchServlet")
 public class SearchServlet extends HttpServlet {
@@ -22,7 +26,6 @@ public class SearchServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes", "deprecation" })
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		 response.setContentType("text/html");
 	        @SuppressWarnings("unused")
@@ -31,8 +34,8 @@ public class SearchServlet extends HttpServlet {
 	        String url = "jdbc:mysql://localhost:3306/";
 	        String dbName = "testdb";
 	        String driver = "com.mysql.jdbc.Driver";
-	        String userName = "root";
-	        String password = "root";
+	        String userName = "ppt";
+	        String password = "ppt@2004";
 	        Statement st=null;
 	        try {
 	            Class.forName(driver).newInstance();
@@ -40,8 +43,8 @@ public class SearchServlet extends HttpServlet {
 	            System.out.println("connected!.....");
 	            String uid = request.getParameter("uid");
 	            String uname=request.getParameter("uname");
-	            ArrayList al = null;
-	            ArrayList pid_list = new ArrayList();
+	            StudentBean al = null;
+	            ArrayList<StudentBean> pid_list = new ArrayList<>();
 	            String query = "select * from user";
 	            if(uid!=null && !uid.equals("") && uname.equals("")){
 	                query = "select * from user where user_id='" + uid + "' ";
@@ -55,11 +58,11 @@ public class SearchServlet extends HttpServlet {
 	            ResultSet rs = st.executeQuery(query);
 
 	            while (rs.next()) {
-	                al = new ArrayList();
+	                //al = new ArrayList<>();
 
-	                al.add(rs.getString(1));
-	                al.add(rs.getString(2));
-	                al.add(rs.getString(3));
+	                al.setSno(rs.getString(1));
+	                al.setSname(rs.getString(2));
+	                al.setSclass(rs.getString(3));
 	                System.out.println("al :: " + al);
 	                pid_list.add(al);
 	            }
